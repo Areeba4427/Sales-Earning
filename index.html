@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="style.css" />
+    
+    <title>Sales Earning Calculator</title>
+</head>
+<body>
+    <div class="main_section">
+    <div class="upper_section">
+   
+
+        <div class="subsection_one">
+
+            <div class="section_one_point_one sub1">
+                <span>
+                    Wie schätz du <span class="orange">deine<br></span> Kommunikationsfähigkeiten ein? 
+                </span>
+            </div>
+            <div class="section_one_point_two slide1">
+                <div class="wrapper">
+                    <input type="range" min="2" max="4" value="3" step="1" class='range-new'
+                        id="range1">
+                </div>
+                <div class="labels">
+                    <span>nicht so gut (2)</span>
+                    <span>durchschnittlich (3)</span>
+                    <span>sehr gut (4)</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="subsection_two">
+
+            <div class="section_two_point_one sub2">
+                <span>
+                    Wie viele Tage arbeitest <span class="orange">du</span> im Monat?
+                </span>
+            </div>
+            <div class="section_two_point_two slide2">
+                <div class="wrapper">
+                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
+                        id="range2">
+                </div>
+                <div class="labels">
+                    <span>1 Tag</span>
+                    <span>30 Tage</span>
+                </div>
+            </div>
+            
+        </div>
+
+
+        
+        <div class="subsection_three">
+
+            <div class="section_three_point_one sub3">
+                <span>
+                    Wie vele <span class="orange">Untervertriebspartner</span> hast du?
+                </span>
+            </div>
+            <div class="section_three_point_two slide3">
+                <div class="wrapper">
+                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
+                        id="range3">
+                </div>
+                <div class="labels">
+                    <span>Ich arbeite alleine (0)</span>
+                    <span>30 Partner</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+        <div class="subsection_four">
+
+            <div class="section_four_point_one sub4">
+                <span>
+                    Wie vele Tage arbeiten <span class="orange">deine <br> Untervertriebspartner </span>durchschnittlich im Monat?
+                </span>    
+            </div>
+            <div class="section_four_point_two slide4">
+                <div class="wrapper">
+                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
+                        id="range4">
+                </div>
+                <div class="labels">
+                    <span>1 Tag</span>
+                    <span>30 Tage</span>
+                </div>
+            </div>
+            
+        </div>
+
+
+</div>
+<div class="lower_section">
+    <div class="outer_div">
+        <div class="inner_div">
+          <span>Einmalige <br>Provision</span>
+          <span class="orange_result" id="field_e">4.500 €</span>
+        </div>
+        <div class="inner_div">
+          <span>Wiederkehrende <br>Provision</span>
+          <span class="orange_result" id="field_f">270 €</span>
+        </div>
+        <div class="inner_div">
+          <span>Untervertriebspartner <br>Provision</span>
+          <span class="orange_result" id="field_g">4.500 €</span>
+        </div>
+    </div>
+      
+</div>
+    </div>
+
+    <script src="asset.js"></script>
+</body>
+</html>
