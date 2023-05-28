@@ -539,6 +539,8 @@
   @media screen and (max-width:315px) {
 
       
+   
+
     .range-new {
         min-width: 260px !important;
     }
@@ -563,6 +565,11 @@
   }
 
   @media screen and (max-width:275px) {
+
+    .upper_section {
+        margin-top: 230px;
+        margin-left: 120px;
+    }
 
       
     .range-new {
@@ -642,7 +649,7 @@
     }
   }
   
-  @media (max-width: 380px) and (max-height: 600px) {
+  @media (max-width: 380px) and (max-height: 900px) {
     
     .upper_section {
         margin-top: 330px;
@@ -653,7 +660,7 @@
   @media (max-width: 380px) and (max-height: 600px) {
     
     .upper_section {
-        margin-top: 370px;
-        margin-left: 120px;
+        margin-top: 400px;
+        margin-left: 125px;
     }
   }
