@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet" href="style.css" />
+    
+    <title>Sales Earning Calculator</title>
+    <style>
+          @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
+
+:root {
+    --background-color: #FFFF;
+    --orange-color: #FF7F00;
+    --text-color: #474747;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.main_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    /* Ensures the section takes up the full height of the viewport */
+}
+
+.main_section span {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    /* Adjust the line height value as needed */
+    color: var(--text-color);
+    text-align: center;
+    /* Center-align the spans */
+}
+
+.orange {
+    color: var(--orange-color) !important;
+}
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    outline: 0;
+    min-width: 870px
+}
+
+.range-new {
+    min-width: 475px !important
+}
+
+.range-new {
+  background: var(--orange-color);
+  border-radius: 0px;
+  height: 2px;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background: var(--background-color);
+    border: 1px solid var(--orange-color);
+    border-radius: 50%;
+    cursor:pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    background: var(--background-color);
+    border: 1px solid var(--orange-color);
+    border-radius: 50%;
+    cursor:pointer;
+}
+
+.wrapper {
+    /* margin-left: 15px; */
+    padding-right: 50px;
+    padding-bottom: 10px;
+    position: relative;
+    padding-bottom: 20px
+}
+
+.subsection_one,
+.subsection_two,
+.subsection_three,
+.subsection_four {
+    display: flex;
+    flex-direction: row;
+}
+
+.subsection_one div,
+.subsection_two div,
+.subsection_three div,
+.subsection_four div {
+
+    margin: 10px 30px;
+}
+
+.sub1,
+.sub2,
+.sub3,
+.sub4 {
+    min-width: 500px;
+    max-width: 500px;
+}
+
+.sub1 span,
+.sub2 span,
+.sub3 span,
+.sub4 span {
+    min-width: 300px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.slide1,
+.slide2,
+.slide3,
+.slide4 {
+    min-width: 500px;
+    max-width: 500px;
+}
+
+
+.labels span {
+    font-size: 13px;
+    font-weight: 700;
+
+}
+
+.labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 95%;
+    margin-top: -20px !important;
+    /* padding-left:0px; */
+}
+
+/* LOWER SECTION */
+.lower_section {
+    margin: 60px 0px;
+}
+
+.outer_div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inner_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 400px;
+}
+
+.inner_div span {
+    margin-right: 10px;
+}
+
+
+span.orange_result {
+    font-size: 50px;
+    color: var(--orange-color);
+    font-family: 'Red Hat Display', sans-serif;
+    /* font-weight:900; */
+
+}
+
+@media screen and (max-width:1200px) {
+
+    .inner_div {
+        min-width: 300px;
+        max-width: 300px;
+    }
+
+}
+
+@media screen and (max-width:1100px) {
+
+    .subsection_one div,
+    .subsection_two div,
+    .subsection_three div,
+    .subsection_four div {
+        margin: 10px 0px;
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        max-width: 100px;
+    }
+
+
+    .inner_div {
+        min-width: 280px;
+    }
+
+    .labels {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .upper_section {
+        margin-left: 20px;
+    }
+
+    .slide1,
+    .slide2,
+    .slide3,
+    .slide4 {
+        max-width: 100px;
+    }
+
+    .range-new {
+        min-width: 385px !important
+    }
+
+    .labels {
+        min-width: 70%;
+        max-width: 90%;
+        padding-left: 25px;
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 400px;
+    }
+
+    .labels {
+        max-width: 76%;
+    }
+
+    .subsection_one div,
+    .subsection_two div,
+    .subsection_three div,
+    .subsection_four div {
+        margin: 10px 10px;
+    }
+}
+
+@media screen and (max-width:875px) {
+    .upper_section {
+        margin-left: 40px;
+    }
+
+    .range-new {
+        min-width: 355px !important
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 300px;
+
+    }
+
+    .inner_div {
+        min-width: 250px;
+    }
+
+    .labels {
+        max-width: 60%;
+        padding-left: 40px;
+    }
+}
+
+@media screen and (max-width:775px) {
+
+    .subsection_one div,
+    .subsection_two div,
+    .subsection_three div,
+    .subsection_four div {
+        margin: 10px 0px;
+    }
+
+    .upper_section {
+        margin-left: 80px;
+    }
+
+    .inner_div {
+        min-width: 230px;
+    }
+
+    span.orange_result {
+        font-size: 45px;
+    }
+    .labels {
+      max-width: 60%;
+      padding-left: 45px;
+  }
+}
+
+@media screen and (max-width:710px) {
+
+    input[type=range] {
+        max-width: 470px
+    }
+
+
+    .range-new {
+        min-width: 315px !important;
+    }
+
+    .labels {
+        min-width: 64%;
+        max-width: 64%;
+        padding-left: 25px;
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 300px;
+        padding-left: 60px;
+    }
+
+    .wrapper {
+        /* margin-left: 15px; */
+        padding-right: 120px;
+     }
+
+    span.orange_result {
+        font-size: 40px;
+    }
+
+
+}
+
+@media screen and (max-width:650px) {
+
+  .sub1,
+  .sub2,
+  .sub3,
+  .sub4 {
+      min-width: 220px;
+      padding-left: 60px;
+  }
+  .subsection_one div,
+  .subsection_two div,
+  .subsection_three div,
+  .subsection_four div {
+
+      margin: 15px 0px;
+  }
+
+  .inner_div {
+      min-width: 200px;
+  }
+
+  .upper_section {
+      margin-top: 150px;
+      }  
+}
+
+@media screen and (max-width:585px) {
+
+  .range-new {
+      min-width: 290px !important;
+  }
+  .labels {
+      min-width: 58%;
+      max-width: 58%;
+      padding-left: 45px;
+  }
+  .sub1,
+  .sub2,
+  .sub3,
+  .sub4 {
+      min-width: 170px;
+      padding-left: 80px;
+      font-size: 12px;
+  }
+  
+  .inner_div {
+      min-width: 170px;
+  }
+ .inner_div span{
+  font-size: 16px;
+ }
+  .sub1 span ,.sub2 span ,.sub3 span ,.sub4 span   {
+      font-size: 15px;   
+  }
+  span.orange_result {
+      font-size: 30px;
+  }
+}
+
+@media screen and (max-width:510px) {
+
+  .sub1,
+  .sub2,
+  .sub3,
+  .sub4 {
+      min-width: 370px;
+      padding-left: 0px;
+  }
+  
+  .range-new {
+      min-width: 390px !important;
+  }
+  .labels {
+      min-width: 78%;
+      max-width: 78%;
+      padding-left: 0px;
+      padding-top: 5px;
+  }
+  .inner_div {
+      min-width: 90px;
+  }
+  .inner_div span{
+       font-size: 14px;
+      padding-left: 10px;
+     }
+   
+      span.orange_result {
+          font-size: 25px;
+      }
+
+
+.subsection_one,
+.subsection_two,
+.subsection_three,
+.subsection_four {
+    display: flex;
+    flex-direction: column;
+    margin: 28px 0px;
+}
+
+.subsection_one div,
+.subsection_two div,
+.subsection_three div,
+.subsection_four div {
+
+    margin: 5px 0px;
+}
+.upper_section {
+  margin-top: 70px;
+  margin-left: 100px;
+}
+
+}
+
+@media screen and (max-width:405px) {
+  .upper_section {
+      margin-top: 120px;
+      margin-left: 110px;
+  }
+
+  .range-new {
+      min-width: 320px !important;
+  }
+  .labels {
+      min-width: 63%;
+      max-width: 63%;
+      padding-left: 30px;
+      padding-top: 5px;
+  }
+  
+  .sub1,
+  .sub2,
+  .sub3,
+  .sub4 {
+      min-width: 350px;
+      padding-left: 20px;
+  }
+  .inner_div span{
+      font-size: 13px;
+     padding-left: 10px;
+    }
+
+  span.orange_result {
+      font-size: 20px;
+  }
+}
+
+@media screen and (max-width:360px) {
+
+  .upper_section {
+      margin-top: 210px;
+      margin-left: 120px;
+  }
+  .outer_div {
+      display: flex;
+      flex-direction: column;
+     
+  }
+  .outer_div div{
+      padding: 15px 0px;
+  }
+  .lower_section {
+      margin: 20px 0px;
+  }
+
+  .inner_div span{
+      font-size: 18px;
+     padding-left: 10px;
+    }
+
+  span.orange_result {
+      font-size: 30px;
+  }
+  
+  .range-new {
+      min-width: 300px !important;
+  }
+  .labels {
+      min-width: 60%;
+      max-width: 60%;
+      padding-left: 40px;
+      padding-top: 5px;
+  }
+  .labels span{
+      font-size: 11px;
+
+  }
+}
+
+@media screen and (max-width:315px) {
+
+    
+ 
+
+  .range-new {
+      min-width: 260px !important;
+  }
+  .labels {
+      min-width: 52%;
+      max-width: 52%;
+      padding-left: 60px;
+      padding-top: 5px;
+  }
+  .labels span{
+      font-size: 11px;
+
+  }
+
+  .sub1,
+  .sub2,
+  .sub3,
+  .sub4 {
+      min-width: 250px;
+      padding-left:60px;
+  }
+}
+
+@media screen and (max-width:275px) {
+
+  .upper_section {
+      margin-top: 230px;
+      margin-left: 120px;
+  }
+
+    
+  .range-new {
+      min-width: 240px !important;
+  } 
+
+
+  input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+  }
+
+  input[type=range]::-moz-range-thumb {
+      height: 20px;
+      width: 20px;
+   
+  }
+  .labels {
+      min-width: 48%;
+      max-width: 48%;
+      padding-left: 70px;
+      padding-top: 5px;
+  }
+}
+
+
+@media screen and (max-width:250px) {
+
+    
+  .range-new {
+      min-width: 220px !important;
+  } 
+
+  .labels {
+      min-width: 44%;
+      max-width: 44%;
+      padding-left: 80px;
+      padding-top: 5px;
+  }
+  .sub1,
+  .sub2,
+  .sub3,
+  .sub4 {
+      min-width: 230px;
+      padding-left:74px;
+  }
+}  
+@media (max-width: 580px) and (max-height: 700px) {
+  
+  .upper_section {
+      margin-top: 200px;
+      margin-left: 120px;
+  }
+}
+@media (max-width: 580px) and (max-height: 600px) {
+  
+  .upper_section {
+      margin-top: 250px;
+      margin-left: 120px;
+  }
+}
+
+@media (max-width: 580px) and (max-height: 500px) {
+
+  .upper_section {
+      margin-top: 400px;
+      margin-left: 120px;
+  }
+}
+
+@media (max-width: 580px) and (max-height: 400px) {
+
+  .upper_section {
+      margin-top: 500px;
+      margin-left: 120px;
+  }
+}
+
+@media (max-width: 380px) and (max-height: 900px) {
+  
+  .upper_section {
+      margin-top: 330px;
+      margin-left: 120px;
+  }
+}
+  
+@media (max-width: 380px) and (max-height: 600px) {
+  
+  .upper_section {
+      margin-top: 400px;
+      margin-left: 125px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="main_section">
+    <div class="upper_section">
+   
+
+        <div class="subsection_one">
+
+            <div class="section_one_point_one sub1">
+                <span>
+                    Wie schätz du <span class="orange">deine<br></span> Kommunikationsfähigkeiten ein? 
+                </span>
+            </div>
+            <div class="section_one_point_two slide1">
+                <div class="wrapper">
+                    <input type="range" min="2" max="4" value="3" step="1" class='range-new'
+                        id="range1">
+                </div>
+                <div class="labels">
+                    <span>nicht so gut (2)</span>
+                    <span>durchschnittlich (3)</span>
+                    <span>sehr gut (4)</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        
+        <div class="subsection_two">
+
+            <div class="section_two_point_one sub2">
+                <span>
+                    Wie viele Tage arbeitest <span class="orange">du</span> im Monat?
+                </span>
+            </div>
+            <div class="section_two_point_two slide2">
+                <div class="wrapper">
+                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
+                        id="range2">
+                </div>
+                <div class="labels">
+                    <span>1 Tag</span>
+                    <span>30 Tage</span>
+                </div>
+            </div>
+            
+        </div>
+
+
+        
+        <div class="subsection_three">
+
+            <div class="section_three_point_one sub3">
+                <span>
+                    Wie vele <span class="orange">Untervertriebspartner</span> hast du?
+                </span>
+            </div>
+            <div class="section_three_point_two slide3">
+                <div class="wrapper">
+                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
+                        id="range3">
+                </div>
+                <div class="labels">
+                    <span>Ich arbeite alleine (0)</span>
+                    <span>30 Partner</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+        <div class="subsection_four">
+
+            <div class="section_four_point_one sub4">
+                <span>
+                    Wie vele Tage arbeiten <span class="orange">deine <br> Untervertriebspartner </span>durchschnittlich im Monat?
+                </span>    
+            </div>
+            <div class="section_four_point_two slide4">
+                <div class="wrapper">
+                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
+                        id="range4">
+                </div>
+                <div class="labels">
+                    <span>1 Tag</span>
+                    <span>30 Tage</span>
+                </div>
+            </div>
+            
+        </div>
+
+
+</div>
+<div class="lower_section">
+    <div class="outer_div">
+        <div class="inner_div">
+          <span>Einmalige <br>Provision</span>
+          <span class="orange_result" id="field_e">4.500 €</span>
+        </div>
+        <div class="inner_div">
+          <span>Wiederkehrende <br>Provision</span>
+          <span class="orange_result" id="field_f">270 €</span>
+        </div>
+        <div class="inner_div">
+          <span>Untervertriebspartner <br>Provision</span>
+          <span class="orange_result" id="field_g">4.500 €</span>
+        </div>
+    </div>
+      
+</div>
+    </div>
+
+    <script src="asset.js">
+        const formatter = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  });
+  
+  
+const slider1 = document.getElementById("range1");
+const slider2 = document.getElementById("range2");
+const slider3 = document.getElementById("range3");
+const slider4 = document.getElementById("range4");
+const result_e = document.getElementById("field_e");
+const result_f = document.getElementById("field_f");
+const result_g = document.getElementById("field_g");
+
+
+var result , result2 , result3;
+
+slider1.addEventListener("input", function () {
+  
+    result = slider1.value * slider2.value * 100;
+    result2 = slider1.value * slider2.value * 10 * 0.60;
+
+    result_e.textContent = formatter.format(result);
+    result_f.textContent = formatter.format(result2);
+
+  });
+  
+  slider2.addEventListener("input", function () {
+  
+    result = slider1.value * slider2.value * 100;
+    result2 = slider1.value * slider2.value * 10 * 0.60;
+
+    result_e.textContent = formatter.format(result);
+    result_f.textContent = formatter.format(result2);
+
+
+  });
+  
+  slider3.addEventListener("input", function () {
+
+    result3 = 2 * slider3.value * slider4.value * 10;
+    result_g.textContent = formatter.format(result3);
+   
+});
+
+  
+slider4.addEventListener("input", function () {
+
+    result3 = 2 * slider3.value * slider4.value * 10;
+    result_g.textContent = formatter.format(result3);
+
+
+});
+    </script>
+</body>
+</html>

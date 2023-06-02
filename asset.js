@@ -25,7 +25,6 @@ slider1.addEventListener("input", function () {
     result_e.textContent = formatter.format(result);
     result_f.textContent = formatter.format(result2);
 
-    console.log(slider1.value);
   });
   
   slider2.addEventListener("input", function () {
@@ -36,8 +35,7 @@ slider1.addEventListener("input", function () {
     result_e.textContent = formatter.format(result);
     result_f.textContent = formatter.format(result2);
 
-    console.log(slider2.value);
-
+    setValue(slider2 , dialogBox1);
   });
   
   slider3.addEventListener("input", function () {
@@ -45,7 +43,7 @@ slider1.addEventListener("input", function () {
     result3 = 2 * slider3.value * slider4.value * 10;
     result_g.textContent = formatter.format(result3);
    
-    console.log(slider3.value);
+    setValue(slider3 , dialogBox2);
 });
 
   
@@ -54,6 +52,158 @@ slider4.addEventListener("input", function () {
     result3 = 2 * slider3.value * slider4.value * 10;
     result_g.textContent = formatter.format(result3);
 
-    console.log(slider4.value);
-
+    setValue(slider4 , dialogBox3);
 });
+
+var newPosition;
+
+function setValue(slider, dialogBox) {
+  const newValue = Number(((slider.value - slider.min) * 100) / (slider.max - slider.min));
+  if(window.innerWidth > 1100){
+    newPosition = 35 - newValue * 0.08;
+
+  }
+  else if(window.innerWidth >975)
+  {
+    newPosition = 3 - newValue * -.56;
+
+  }
+  
+  else if(window.innerWidth >875)
+  {
+    newPosition = -8.0 - newValue * -1.24;
+
+  }
+  else if(window.innerWidth >775)
+  {
+    newPosition = -20.0 - newValue * -1.5;
+
+  }
+
+  else if(window.innerWidth >710)
+  {
+    newPosition = -44.0 - newValue * -1.78;
+
+  }
+  
+  else if(window.innerWidth >650)
+  {
+    newPosition = -28.0 - newValue * -2.15;
+
+  }
+  else if(window.innerWidth >585)
+  {
+    newPosition = -28.0 - newValue * -2.15;
+
+  }
+
+  else if(window.innerWidth >510)
+  {
+    newPosition = -39.0 - newValue * -2.35;
+
+  }
+
+  else if(window.innerWidth > 360)
+  {
+    newPosition = -23.23 - newValue * -2.13;
+
+  }
+
+  else if(window.innerWidth > 315)
+  {
+    newPosition = -34.87 - newValue * -2.31;
+
+  }
+
+  else if(window.innerWidth > 275)
+  {
+    newPosition = -52.87 - newValue * -2.65;
+
+  }
+  
+  else if(window.innerWidth > 250)
+  {
+    newPosition = -61.87 - newValue * -2.8;
+
+  }
+  else if (window.innerWidth < 250)
+  {
+    newPosition = -73.87 - newValue * -2.99;
+
+  }
+  dialogBox.innerHTML = `<span>${slider.value}</span>`;
+  dialogBox.style.left = `calc(${newValue}% - ${newPosition}px)`;
+}
+
+
+setValue(slider2 , dialogBox1);
+setValue(slider3 , dialogBox2);
+setValue(slider4 , dialogBox3);
+
+
+
+// Add an event listener to reposition tooltips on window resize
+window.addEventListener('resize', function() {
+    var tooltips = document.querySelectorAll('.tooltip-text');
+    tooltips.forEach(function(tooltip) {
+      tooltip.style.left = '50%';
+      tooltip.style.transform = 'translateX(-50%)';
+    });
+  });
+  
+
+
+
+
+
+function hover(n) {
+
+  if (n == 1) {
+      document.getElementById("display1").style.display = "block";
+  }
+  if (n == 2) {
+      document.getElementById("display2").style.display = "block";
+  }
+  if (n == 3) {
+      document.getElementById("display3").style.display = "block";
+  }
+  if (n == 4) {
+      document.getElementById("display4").style.display = "block";
+  }
+  if (n == 5) {
+      document.getElementById("display5").style.display = "block";
+  }
+  if (n == 6) {
+      document.getElementById("display6").style.display = "block";
+  }
+  if (n == 7) {
+      document.getElementById("display7").style.display = "block";
+  }
+
+
+}
+function dis(n) {
+
+  if (n == 1) {
+      document.getElementById("display1").style.display = "none";
+  }
+  if (n == 2) {
+      document.getElementById("display2").style.display = "none";
+  }
+  if (n == 3) {
+      document.getElementById("display3").style.display = "none";
+  }
+  if (n == 4) {
+      document.getElementById("display4").style.display = "none";
+  }
+  if (n == 5) {
+      document.getElementById("display5").style.display = "none";
+  }
+  if (n == 6) {
+      document.getElementById("display6").style.display = "none";
+  }
+  if (n == 7) {
+      document.getElementById("display7").style.display = "none";
+  }
+
+}
