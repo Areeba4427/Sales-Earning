@@ -102,7 +102,10 @@ function setValue(slider, dialogBox) {
     newPosition = -39.0 - newValue * -2.35;
 
   }
-
+  else if(window.innerWidth >405)
+  {
+  newPosition = -0.23 - newValue * -1.45;
+  }
   else if(window.innerWidth > 360)
   {
     newPosition = -23.23 - newValue * -2.13;
