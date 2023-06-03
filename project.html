@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <link rel="stylesheet" href="style.css" />
-    
     <title>Sales Earning Calculator</title>
-    <style>
-          @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
+
+<style>
+       @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&display=swap');
 
 :root {
     --background-color: #FFFF;
@@ -33,6 +34,57 @@ body {
 }
 
 
+/* tootip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill:#474747;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.main_section span .tooltip-text{
+  color: wheat;
+
+}
+.tooltip-text {
+  visibility: hidden;
+  width: 160px;
+  font-size: 10px !important;
+  background-color: var(--orange-color);
+  color: wheat;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .tooltip {
+    display: block;
+    margin-top: 5px;
+    margin-left: 0;
+  }
+}
+
+
+
 .main_section {
     display: flex;
     flex-direction: column;
@@ -47,11 +99,11 @@ body {
     font-size: 18px;
     font-weight: 600;
     line-height: 1.2;
-    /* Adjust the line height value as needed */
     color: var(--text-color);
     text-align: center;
     /* Center-align the spans */
 }
+
 
 .orange {
     color: var(--orange-color) !important;
@@ -69,12 +121,12 @@ input[type=range] {
 }
 
 .range-new {
-  background: var(--orange-color);
-  border-radius: 0px;
-  height: 2px;
-  outline: none;
-  transition: background 450ms ease-in;
-  -webkit-appearance: none;
+    background: var(--orange-color);
+    border-radius: 0px;
+    height: 2px;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
 }
 
 
@@ -85,8 +137,60 @@ input[type=range]::-webkit-slider-thumb {
     background: var(--background-color);
     border: 1px solid var(--orange-color);
     border-radius: 50%;
-    cursor:pointer;
+    cursor: pointer;
 }
+
+.dialog-box {
+    position: absolute;
+    bottom: 32px;
+    background-color: #fff;
+    border-radius: 0px;
+    padding: 2px 10px;
+    border: 2.5px solid var(--orange-color);
+    white-space: nowrap;
+    font-size: 8px !important;
+    font-weight: 200;
+}
+
+
+.dialog-box:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 6px solid var(--orange-color);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    top: 110%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -1px;
+}
+
+
+/* .tool_tip{
+  
+  background: #404145;
+  padding: 12px;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+} */
+
+.slider::-webkit-slider-thumb:hover+.dialog-box,
+.slider::-moz-range-thumb:hover+.dialog-box {
+    display: block;
+}
+
+.slider::-webkit-slider-thumb:active+.dialog-box,
+.slider::-moz-range-thumb:active+.dialog-box {
+    display: block;
+}
+
 
 input[type=range]::-moz-range-thumb {
     height: 24px;
@@ -94,7 +198,7 @@ input[type=range]::-moz-range-thumb {
     background: var(--background-color);
     border: 1px solid var(--orange-color);
     border-radius: 50%;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .wrapper {
@@ -118,7 +222,7 @@ input[type=range]::-moz-range-thumb {
 .subsection_three div,
 .subsection_four div {
 
-    margin: 10px 30px;
+    margin: 14px 30px;
 }
 
 .sub1,
@@ -167,7 +271,7 @@ input[type=range]::-moz-range-thumb {
     margin: 60px 0px;
 }
 
-.outer_div {
+.outer_div{
     display: flex;
     flex-wrap: wrap;
 }
@@ -192,17 +296,20 @@ span.orange_result {
 
 }
 
-@media screen and (max-width:1200px) {
+
+@media screen and (max-width:1210px) {
 
     .inner_div {
         min-width: 300px;
         max-width: 300px;
     }
 
+  
 }
 
 @media screen and (max-width:1100px) {
-
+ 
+    
     .subsection_one div,
     .subsection_two div,
     .subsection_three div,
@@ -225,8 +332,9 @@ span.orange_result {
     .labels {
         max-width: 90%;
     }
-}
 
+
+}
 @media screen and (max-width:980px) {
     .upper_section {
         margin-left: 20px;
@@ -266,9 +374,16 @@ span.orange_result {
     .subsection_four div {
         margin: 10px 10px;
     }
+
 }
 
 @media screen and (max-width:875px) {
+    .main_section {
+      padding-top: 220px; /* Adjust the value to your desired space */
+      height: 110vh;
+  }
+
+
     .upper_section {
         margin-left: 40px;
     }
@@ -315,10 +430,12 @@ span.orange_result {
     span.orange_result {
         font-size: 45px;
     }
+
     .labels {
-      max-width: 60%;
-      padding-left: 45px;
-  }
+        max-width: 60%;
+        padding-left: 45px;
+    }
+
 }
 
 @media screen and (max-width:710px) {
@@ -349,7 +466,7 @@ span.orange_result {
     .wrapper {
         /* margin-left: 15px; */
         padding-right: 120px;
-     }
+    }
 
     span.orange_result {
         font-size: 40px;
@@ -359,439 +476,542 @@ span.orange_result {
 }
 
 @media screen and (max-width:650px) {
-
-  .sub1,
-  .sub2,
-  .sub3,
-  .sub4 {
-      min-width: 220px;
-      padding-left: 60px;
-  }
-  .subsection_one div,
-  .subsection_two div,
-  .subsection_three div,
-  .subsection_four div {
-
-      margin: 15px 0px;
+  .main_section {
+      padding-top: 250px; /* Adjust the value to your desired space */
+      height: 175vh;
   }
 
-  .inner_div {
-      min-width: 200px;
-  }
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 220px;
+        padding-left: 60px;
+    }
 
-  .upper_section {
-      margin-top: 150px;
-      }  
-}
+    .subsection_one div,
+    .subsection_two div,
+    .subsection_three div,
+    .subsection_four div {
+
+        margin: 15px 0px;
+    }
+
+    .inner_div {
+        min-width: 200px;
+    }
+
+    .upper_section {
+        margin-top: 150px;
+
+      }
+
+  }
 
 @media screen and (max-width:585px) {
 
-  .range-new {
-      min-width: 290px !important;
-  }
-  .labels {
-      min-width: 58%;
-      max-width: 58%;
-      padding-left: 45px;
-  }
-  .sub1,
-  .sub2,
-  .sub3,
-  .sub4 {
-      min-width: 170px;
-      padding-left: 80px;
-      font-size: 12px;
-  }
-  
-  .inner_div {
-      min-width: 170px;
-  }
- .inner_div span{
-  font-size: 16px;
- }
-  .sub1 span ,.sub2 span ,.sub3 span ,.sub4 span   {
-      font-size: 15px;   
-  }
-  span.orange_result {
-      font-size: 30px;
-  }
+    .range-new {
+        min-width: 290px !important;
+    }
+
+    .labels {
+        min-width: 58%;
+        max-width: 58%;
+        padding-left: 45px;
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 170px;
+        padding-left: 80px;
+        font-size: 12px;
+    }
+
+    .inner_div {
+        min-width: 170px;
+    }
+
+    .inner_div span {
+        font-size: 16px;
+    }
+
+    .sub1 span,
+    .sub2 span,
+    .sub3 span,
+    .sub4 span {
+        font-size: 15px;
+    }
+
+    span.orange_result {
+        font-size: 30px;
+    }
+    .main_section span .tooltip-text{
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+   .main_section .tooltip-text{
+      width: 100px;
+      font-size: 8px;
+    }
 }
 
 @media screen and (max-width:510px) {
 
-  .sub1,
-  .sub2,
-  .sub3,
-  .sub4 {
-      min-width: 370px;
-      padding-left: 0px;
-  }
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 370px;
+        padding-left: 0px;
+    }
+
+    .range-new {
+        min-width: 390px !important;
+    }
+
+    .labels {
+        min-width: 78%;
+        max-width: 78%;
+        padding-left: 0px;
+        padding-top: 5px;
+    }
+
+    .inner_div {
+        min-width: 90px;
+    }
+
+    .inner_div span {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    span.orange_result {
+        font-size: 25px;
+    }
+
+
+    .subsection_one,
+    .subsection_two,
+    .subsection_three,
+    .subsection_four {
+        display: flex;
+        flex-direction: column;
+        margin: 28px 0px;
+    }
+
+    .subsection_one div,
+    .subsection_two div,
+    .subsection_three div,
+    .subsection_four div {
+
+        margin: 5px 0px;
+    }
+
+    .upper_section {
+        margin-top: 150px;
+        margin-left: 100px;
+    }
+
+    .dialog-box {
+      position: absolute;
+      bottom: 37px;
+      
+    }
   
-  .range-new {
-      min-width: 390px !important;
-  }
-  .labels {
-      min-width: 78%;
-      max-width: 78%;
-      padding-left: 0px;
-      padding-top: 5px;
-  }
-  .inner_div {
-      min-width: 90px;
-  }
-  .inner_div span{
-       font-size: 14px;
-      padding-left: 10px;
-     }
-   
-      span.orange_result {
-          font-size: 25px;
-      }
-
-
-.subsection_one,
-.subsection_two,
-.subsection_three,
-.subsection_four {
-    display: flex;
-    flex-direction: column;
-    margin: 28px 0px;
-}
-
-.subsection_one div,
-.subsection_two div,
-.subsection_three div,
-.subsection_four div {
-
-    margin: 5px 0px;
-}
-.upper_section {
-  margin-top: 70px;
-  margin-left: 100px;
-}
-
 }
 
 @media screen and (max-width:405px) {
-  .upper_section {
-      margin-top: 120px;
-      margin-left: 110px;
-  }
-
-  .range-new {
-      min-width: 320px !important;
-  }
-  .labels {
-      min-width: 63%;
-      max-width: 63%;
-      padding-left: 30px;
-      padding-top: 5px;
-  }
-  
-  .sub1,
-  .sub2,
-  .sub3,
-  .sub4 {
-      min-width: 350px;
-      padding-left: 20px;
-  }
-  .inner_div span{
-      font-size: 13px;
-     padding-left: 10px;
+    .upper_section {
+        margin-top: 120px;
+        margin-left: 110px;
     }
 
-  span.orange_result {
-      font-size: 20px;
+    .range-new {
+        min-width: 320px !important;
+    }
+
+    .labels {
+        min-width: 63%;
+        max-width: 63%;
+        padding-left: 30px;
+        padding-top: 5px;
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 350px;
+        padding-left: 20px;
+    }
+
+    .inner_div span {
+        font-size: 13px;
+        padding-left: 10px;
+    }
+
+    span.orange_result {
+        font-size: 20px;
+    }
+    .main_section .tooltip-text span{
+      font-size: 7px;
+    }
+    .main_section .tooltip-text {
+margin-left: 20px;
+      width: 106px;
+      padding: 2px;
   }
 }
 
 @media screen and (max-width:360px) {
-
-  .upper_section {
-      margin-top: 210px;
-      margin-left: 120px;
-  }
-  .outer_div {
-      display: flex;
-      flex-direction: column;
-     
-  }
-  .outer_div div{
-      padding: 15px 0px;
-  }
-  .lower_section {
-      margin: 20px 0px;
-  }
-
-  .inner_div span{
-      font-size: 18px;
-     padding-left: 10px;
+  .main_section .tooltip-text span{
+      font-size: 10px;
     }
 
-  span.orange_result {
-      font-size: 30px;
+  .main_section .tooltip-text {
+      width: 176px;
+      margin-left: 0px;
+      padding: 5px;
   }
-  
-  .range-new {
-      min-width: 300px !important;
-  }
-  .labels {
-      min-width: 60%;
-      max-width: 60%;
-      padding-left: 40px;
-      padding-top: 5px;
-  }
-  .labels span{
-      font-size: 11px;
 
-  }
+    .upper_section {
+        margin-top: 210px;
+        margin-left: 120px;
+    }
+
+    .outer_div {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .outer_div div {
+        padding: 15px 0px;
+    }
+
+    .lower_section {
+        margin: 20px 0px;
+    }
+
+    .inner_div span {
+        font-size: 18px;
+        padding-left: 10px;
+    }
+
+    span.orange_result {
+        font-size: 30px;
+    }
+
+    .range-new {
+        min-width: 300px !important;
+    }
+
+    .labels {
+        min-width: 60%;
+        max-width: 60%;
+        padding-left: 40px;
+        padding-top: 5px;
+    }
+
+    .labels span {
+        font-size: 11px;
+
+    }
 }
 
 @media screen and (max-width:315px) {
 
-    
- 
 
-  .range-new {
-      min-width: 260px !important;
-  }
-  .labels {
-      min-width: 52%;
-      max-width: 52%;
-      padding-left: 60px;
-      padding-top: 5px;
-  }
-  .labels span{
-      font-size: 11px;
 
-  }
 
-  .sub1,
-  .sub2,
-  .sub3,
-  .sub4 {
-      min-width: 250px;
-      padding-left:60px;
-  }
+    .range-new {
+        min-width: 260px !important;
+    }
+
+    .labels {
+        min-width: 52%;
+        max-width: 52%;
+        padding-left: 60px;
+        padding-top: 5px;
+    }
+
+    .labels span {
+        font-size: 11px;
+
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 250px;
+        padding-left: 60px;
+    }
 }
 
 @media screen and (max-width:275px) {
 
-  .upper_section {
-      margin-top: 230px;
-      margin-left: 120px;
-  }
-
-    
-  .range-new {
-      min-width: 240px !important;
-  } 
+    .upper_section {
+        margin-top: 230px;
+        margin-left: 120px;
+    }
 
 
-  input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 20px;
-      width: 20px;
-  }
+    .range-new {
+        min-width: 240px !important;
+    }
 
-  input[type=range]::-moz-range-thumb {
-      height: 20px;
-      width: 20px;
-   
-  }
-  .labels {
-      min-width: 48%;
-      max-width: 48%;
-      padding-left: 70px;
-      padding-top: 5px;
-  }
+
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        height: 20px;
+        width: 20px;
+
+    }
+    .dialog-box {
+      padding: 2px 5px;
+    }
+    .labels {
+        min-width: 48%;
+        max-width: 48%;
+        padding-left: 70px;
+        padding-top: 5px;
+    }
 }
 
 
 @media screen and (max-width:250px) {
 
-    
-  .range-new {
-      min-width: 220px !important;
-  } 
 
-  .labels {
-      min-width: 44%;
-      max-width: 44%;
-      padding-left: 80px;
-      padding-top: 5px;
-  }
-  .sub1,
-  .sub2,
-  .sub3,
-  .sub4 {
-      min-width: 230px;
-      padding-left:74px;
-  }
-}  
-@media (max-width: 580px) and (max-height: 700px) {
-  
-  .upper_section {
-      margin-top: 200px;
-      margin-left: 120px;
-  }
+    .range-new {
+        min-width: 220px !important;
+    }
+
+    .labels {
+        min-width: 44%;
+        max-width: 44%;
+        padding-left: 80px;
+        padding-top: 5px;
+    }
+
+    .sub1,
+    .sub2,
+    .sub3,
+    .sub4 {
+        min-width: 230px;
+        padding-left: 74px;
+    }
 }
+
+@media (max-width: 580px) and (max-height: 700px) {
+
+    .upper_section {
+        margin-top: 200px;
+        margin-left: 120px;
+    }
+}
+
 @media (max-width: 580px) and (max-height: 600px) {
-  
-  .upper_section {
-      margin-top: 250px;
-      margin-left: 120px;
-  }
+
+    .upper_section {
+        margin-top: 250px;
+        margin-left: 120px;
+    }
 }
 
 @media (max-width: 580px) and (max-height: 500px) {
 
-  .upper_section {
-      margin-top: 400px;
-      margin-left: 120px;
-  }
+    .upper_section {
+        margin-top: 400px;
+        margin-left: 120px;
+    }
 }
 
 @media (max-width: 580px) and (max-height: 400px) {
 
-  .upper_section {
-      margin-top: 500px;
-      margin-left: 120px;
-  }
+    .upper_section {
+        margin-top: 500px;
+        margin-left: 120px;
+    }
 }
 
 @media (max-width: 380px) and (max-height: 900px) {
-  
-  .upper_section {
-      margin-top: 330px;
-      margin-left: 120px;
-  }
+
+    .upper_section {
+        margin-top: 330px;
+        margin-left: 120px;
+    }
 }
-  
+
 @media (max-width: 380px) and (max-height: 600px) {
-  
-  .upper_section {
-      margin-top: 400px;
-      margin-left: 125px;
-  }
+
+    .upper_section {
+        margin-top: 400px;
+        margin-left: 125px;
+    }
 }
-    </style>
+</style>
 </head>
+
 <body>
     <div class="main_section">
-    <div class="upper_section">
-   
+        <div class="upper_section">
 
-        <div class="subsection_one">
 
-            <div class="section_one_point_one sub1">
-                <span>
-                    Wie schätz du <span class="orange">deine<br></span> Kommunikationsfähigkeiten ein? 
-                </span>
-            </div>
-            <div class="section_one_point_two slide1">
-                <div class="wrapper">
-                    <input type="range" min="2" max="4" value="3" step="1" class='range-new'
-                        id="range1">
+            <div class="subsection_one">
+
+                <div class="section_one_point_one sub1">
+                    <span>
+                        Wie schätz du <span class="orange">deine<br></span> Kommunikationsfähigkeiten ein?
+                    </span>
                 </div>
-                <div class="labels">
-                    <span>nicht so gut (2)</span>
-                    <span>durchschnittlich (3)</span>
-                    <span>sehr gut (4)</span>
+                <div class="section_one_point_two slide1">
+                    <div class="wrapper">
+
+                        <input type="range" min="2" max="4" value="3" step="1" class='range-new' id="range1">
+                    </div>
+                    <div class="labels">
+                        <span>nicht so gut</span>
+                        <span>durchschnittlich</span>
+                        <span>sehr gut</span>
+                    </div>
+
                 </div>
 
             </div>
+
+
+
+            <div class="subsection_two">
+
+                <div class="section_two_point_one sub2">
+                    <span>
+                        Wie viele Tage arbeitest <span class="orange">du</span> im Monat?
+                    </span>
+                </div>
+                <div class="section_two_point_two slide2">
+                    <div class="wrapper">
+                        <div class="dialog-box" id="dialogBox1">8</div>
+                        <input type="range" min="1" max="30" value="15" step="1" class='range-new' id="range2">
+                    </div>
+                    <div class="labels">
+                        <span>1 Tag</span>
+                        <span>30 Tage</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="subsection_three">
+
+                <div class="section_three_point_one sub3">
+                    <span>
+                        Wie vele <span class="orange">Untervertriebspartner</span> hast du?
+                    </span>
+                </div>
+                <div class="section_three_point_two slide3">
+                    <div class="wrapper">
+                        <div class="dialog-box" id="dialogBox2">8</div>
+                        <input type="range" min="0" max="30" value="15" step="1" class='range-new' id="range3">
+                    </div>
+                    <div class="labels">
+                        <span>0</span>
+                        <span>30 Partner</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="subsection_four">
+
+                <div class="section_four_point_one sub4">
+                    <span>
+                        Wie vele Tage arbeiten <span class="orange">deine <br> Untervertriebspartner
+                        </span>durchschnittlich im Monat?
+                    </span>
+
+                </div>
+                <div class="section_four_point_two slide4">
+                    <div class="wrapper">
+                        <div class="dialog-box" id="dialogBox3">8</div>
+                        <input type="range" min="1" max="30" value="15" step="1" class='range-new' id="range4">
+                    </div>
+                    <div class="labels">
+                        <span>1 Tag</span>
+                        <span>30 Tage</span>
+                    </div>
+                </div>
+
+            </div>
+
 
         </div>
-
-
-        
-        <div class="subsection_two">
-
-            <div class="section_two_point_one sub2">
-                <span>
-                    Wie viele Tage arbeitest <span class="orange">du</span> im Monat?
-                </span>
-            </div>
-            <div class="section_two_point_two slide2">
-                <div class="wrapper">
-                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
-                        id="range2">
+        <div class="lower_section">
+            <div class="outer_div">
+                <div class="inner_div">
+                  <span>
+                    Einmalige
+                    <br>
+                    Provision
+                    <span class="tooltip">
+                        <svg  class='icon' height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 302.967 302.967" xml:space="preserve" fill="#474747" stroke="#474747"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path style="fill:#474747;" d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0 s151.483,67.956,151.483,151.483S235.017,302.967,151.483,302.967z M151.483,24.416c-70.066,0-127.067,57.001-127.067,127.067 s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z"></path> </g> <g> <g> <path style="fill:#474747;" d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898 c4.547-1.904,9.633-2.845,15.262-2.845c7.261,0,13.32,0.995,18.183,2.997c4.857,1.996,8.768,4.482,11.738,7.441 c2.964,2.97,5.091,6.168,6.369,9.584c1.273,3.432,1.915,6.636,1.915,9.595c0,4.901-0.642,8.947-1.915,12.118 c-1.278,3.171-2.866,5.88-4.759,8.131c-1.898,2.252-3.987,4.172-6.293,5.755c-2.295,1.588-4.471,3.171-6.516,4.759 c-2.045,1.583-3.862,3.394-5.445,5.439c-1.588,2.04-2.589,4.601-2.991,7.664v5.831H140.6v-6.908 c0.305-4.395,1.153-8.072,2.529-11.036c1.382-2.964,2.991-5.499,4.83-7.598c1.844-2.089,3.786-3.911,5.836-5.445 c2.04-1.539,3.927-3.073,5.673-4.591c1.73-1.545,3.144-3.225,4.221-5.069c1.071-1.833,1.556-4.15,1.452-6.908 c0-4.705-1.148-8.18-3.454-10.427c-2.295-2.257-5.493-3.378-9.589-3.378c-2.758,0-5.134,0.533-7.131,1.605 s-3.628,2.513-4.911,4.302c-1.278,1.795-2.225,3.894-2.834,6.288c-0.615,2.415-0.919,4.982-0.919,7.756h-22.55 C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"></path> </g> </g> </g> </g> </g></svg>
+                      <span class="tooltip-text">Die Einmalige Provision von 100€ wird dir für jeden erfolgreichen Verkauf der Enoti Software ausgezahlt.
+                    </span>
+                    </span>
+                  </span>
+                  <span class="orange_result" id="field_e">4.500 €</span>
                 </div>
-                <div class="labels">
-                    <span>1 Tag</span>
-                    <span>30 Tage</span>
+                <div class="inner_div">
+                    <span>Wiederkehrende <br>
+                            Provision   
+                            <span class="tooltip">
+                            <svg  class='icon' height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 302.967 302.967" xml:space="preserve" fill="#474747" stroke="#474747"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path style="fill:#474747;" d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0 s151.483,67.956,151.483,151.483S235.017,302.967,151.483,302.967z M151.483,24.416c-70.066,0-127.067,57.001-127.067,127.067 s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z"></path> </g> <g> <g> <path style="fill:#474747;" d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898 c4.547-1.904,9.633-2.845,15.262-2.845c7.261,0,13.32,0.995,18.183,2.997c4.857,1.996,8.768,4.482,11.738,7.441 c2.964,2.97,5.091,6.168,6.369,9.584c1.273,3.432,1.915,6.636,1.915,9.595c0,4.901-0.642,8.947-1.915,12.118 c-1.278,3.171-2.866,5.88-4.759,8.131c-1.898,2.252-3.987,4.172-6.293,5.755c-2.295,1.588-4.471,3.171-6.516,4.759 c-2.045,1.583-3.862,3.394-5.445,5.439c-1.588,2.04-2.589,4.601-2.991,7.664v5.831H140.6v-6.908 c0.305-4.395,1.153-8.072,2.529-11.036c1.382-2.964,2.991-5.499,4.83-7.598c1.844-2.089,3.786-3.911,5.836-5.445 c2.04-1.539,3.927-3.073,5.673-4.591c1.73-1.545,3.144-3.225,4.221-5.069c1.071-1.833,1.556-4.15,1.452-6.908 c0-4.705-1.148-8.18-3.454-10.427c-2.295-2.257-5.493-3.378-9.589-3.378c-2.758,0-5.134,0.533-7.131,1.605 s-3.628,2.513-4.911,4.302c-1.278,1.795-2.225,3.894-2.834,6.288c-0.615,2.415-0.919,4.982-0.919,7.756h-22.55 C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"></path> </g> </g> </g> </g> </g></svg>
+                 
+                                <span class="tooltip-text">Bei Enoti profitierst du nicht nur von der einmaligen Provision beim Abschluss, sondern auch von einer kontinuierlichen wiederkehrenden Provision.
+
+                                    Das bedeutet, dass du jeden Monat eine Provision in Höhe von 10€ für jeden Kunden erhältst, den du jemals erfolgreich abgeschlossen hast und der die Enoti Software zum Zeitpunkt der Monatsabrechnung aktiv nutzt. Der hier angezeigte wiederkehrende Provisionswert wird zu allen vorherigen Abschlüssen addiert, die du erzielt hast.
+                                    
+                                    Diese wiederkehrende Provisionen bieten dir langfristige Einnahmemöglichkeiten und eine stabile sowie diversifizierte Einkommensquelle.</span>
+                              </span> 
+                                </span>
+
+                    </span>
+                    <span class="orange_result" id="field_f">270 €</span>
                 </div>
-            </div>
-            
-        </div>
+                <div class="inner_div">
+                    <span>Untervertriebspartner <br>
+                      
+                            Provision
+                            <span class="tooltip">
+                                <svg  class='icon' height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 302.967 302.967" xml:space="preserve" fill="#474747" stroke="#474747"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path style="fill:#474747;" d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0 s151.483,67.956,151.483,151.483S235.017,302.967,151.483,302.967z M151.483,24.416c-70.066,0-127.067,57.001-127.067,127.067 s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z"></path> </g> <g> <g> <path style="fill:#474747;" d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898 c4.547-1.904,9.633-2.845,15.262-2.845c7.261,0,13.32,0.995,18.183,2.997c4.857,1.996,8.768,4.482,11.738,7.441 c2.964,2.97,5.091,6.168,6.369,9.584c1.273,3.432,1.915,6.636,1.915,9.595c0,4.901-0.642,8.947-1.915,12.118 c-1.278,3.171-2.866,5.88-4.759,8.131c-1.898,2.252-3.987,4.172-6.293,5.755c-2.295,1.588-4.471,3.171-6.516,4.759 c-2.045,1.583-3.862,3.394-5.445,5.439c-1.588,2.04-2.589,4.601-2.991,7.664v5.831H140.6v-6.908 c0.305-4.395,1.153-8.072,2.529-11.036c1.382-2.964,2.991-5.499,4.83-7.598c1.844-2.089,3.786-3.911,5.836-5.445 c2.04-1.539,3.927-3.073,5.673-4.591c1.73-1.545,3.144-3.225,4.221-5.069c1.071-1.833,1.556-4.15,1.452-6.908 c0-4.705-1.148-8.18-3.454-10.427c-2.295-2.257-5.493-3.378-9.589-3.378c-2.758,0-5.134,0.533-7.131,1.605 s-3.628,2.513-4.911,4.302c-1.278,1.795-2.225,3.894-2.834,6.288c-0.615,2.415-0.919,4.982-0.919,7.756h-22.55 C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"></path> </g> </g> </g> </g> </g></svg>
+                 
+                                <span class="tooltip-text">Die Untervertriebspartner-Provision von 10€ erhältst du als Hauptvertriebspartner einmalig für jeden erfolgreichen Abschluss deiner Untervertriebspartner.
 
-
-        
-        <div class="subsection_three">
-
-            <div class="section_three_point_one sub3">
-                <span>
-                    Wie vele <span class="orange">Untervertriebspartner</span> hast du?
-                </span>
-            </div>
-            <div class="section_three_point_two slide3">
-                <div class="wrapper">
-                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
-                        id="range3">
+                                    Unabhängig von deiner Untervertriebspartner-Provision erhalten deine Untervertriebspartner die reguläre einmalige Provision in Höhe von 100 Euro bei jedem Abschluss sowie die reguläre wiederkehrende Provision von 10 Euro pro Monat für jeden ihrer aktiven Kunden.</span>
+                              </span> 
+                        </span>
+                    </span>
+                    <span class="orange_result" id="field_g">4.500 €</span>
                 </div>
-                <div class="labels">
-                    <span>Ich arbeite alleine (0)</span>
-                    <span>30 Partner</span>
-                </div>
-            </div>
-        </div>
 
+              </div>
 
-
-        
-        <div class="subsection_four">
-
-            <div class="section_four_point_one sub4">
-                <span>
-                    Wie vele Tage arbeiten <span class="orange">deine <br> Untervertriebspartner </span>durchschnittlich im Monat?
-                </span>    
-            </div>
-            <div class="section_four_point_two slide4">
-                <div class="wrapper">
-                    <input type="range" min="1" max="30" value="15" step="1" class='range-new'
-                        id="range4">
-                </div>
-                <div class="labels">
-                    <span>1 Tag</span>
-                    <span>30 Tage</span>
-                </div>
-            </div>
-            
-        </div>
-
-
-</div>
-<div class="lower_section">
-    <div class="outer_div">
-        <div class="inner_div">
-          <span>Einmalige <br>Provision</span>
-          <span class="orange_result" id="field_e">4.500 €</span>
-        </div>
-        <div class="inner_div">
-          <span>Wiederkehrende <br>Provision</span>
-          <span class="orange_result" id="field_f">270 €</span>
-        </div>
-        <div class="inner_div">
-          <span>Untervertriebspartner <br>Provision</span>
-          <span class="orange_result" id="field_g">4.500 €</span>
         </div>
     </div>
-      
-</div>
-    </div>
 
-    <script src="asset.js">
+    <script>
         const formatter = new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'EUR',
@@ -829,7 +1049,7 @@ slider1.addEventListener("input", function () {
     result_e.textContent = formatter.format(result);
     result_f.textContent = formatter.format(result2);
 
-
+    setValue(slider2 , dialogBox1);
   });
   
   slider3.addEventListener("input", function () {
@@ -837,6 +1057,7 @@ slider1.addEventListener("input", function () {
     result3 = 2 * slider3.value * slider4.value * 10;
     result_g.textContent = formatter.format(result3);
    
+    setValue(slider3 , dialogBox2);
 });
 
   
@@ -845,8 +1066,111 @@ slider4.addEventListener("input", function () {
     result3 = 2 * slider3.value * slider4.value * 10;
     result_g.textContent = formatter.format(result3);
 
-
+    setValue(slider4 , dialogBox3);
 });
+
+var newPosition;
+
+function setValue(slider, dialogBox) {
+  const newValue = Number(((slider.value - slider.min) * 100) / (slider.max - slider.min));
+  if(window.innerWidth > 1100){
+    newPosition = 35 - newValue * 0.08;
+
+  }
+  else if(window.innerWidth >975)
+  {
+    newPosition = 3 - newValue * -.56;
+
+  }
+  
+  else if(window.innerWidth >875)
+  {
+    newPosition = -8.0 - newValue * -1.24;
+
+  }
+  else if(window.innerWidth >775)
+  {
+    newPosition = -20.0 - newValue * -1.5;
+
+  }
+
+  else if(window.innerWidth >710)
+  {
+    newPosition = -44.0 - newValue * -1.78;
+
+  }
+  
+  else if(window.innerWidth >650)
+  {
+    newPosition = -28.0 - newValue * -2.15;
+
+  }
+  else if(window.innerWidth >585)
+  {
+    newPosition = -28.0 - newValue * -2.15;
+
+  }
+
+  else if(window.innerWidth >510)
+  {
+    newPosition = -39.0 - newValue * -2.35;
+
+  }
+  else if(window.innerWidth >405)
+  {
+  newPosition = -0.23 - newValue * -1.45;
+  }
+  else if(window.innerWidth > 360)
+  {
+    newPosition = -23.23 - newValue * -2.13;
+
+  }
+
+  else if(window.innerWidth > 315)
+  {
+    newPosition = -34.87 - newValue * -2.31;
+
+  }
+
+  else if(window.innerWidth > 275)
+  {
+    newPosition = -52.87 - newValue * -2.65;
+
+  }
+  
+  else if(window.innerWidth > 250)
+  {
+    newPosition = -61.87 - newValue * -2.8;
+
+  }
+  else if (window.innerWidth < 250)
+  {
+    newPosition = -73.87 - newValue * -2.99;
+
+  }
+  dialogBox.innerHTML = `<span>${slider.value}</span>`;
+  dialogBox.style.left = `calc(${newValue}% - ${newPosition}px)`;
+}
+
+
+setValue(slider2 , dialogBox1);
+setValue(slider3 , dialogBox2);
+setValue(slider4 , dialogBox3);
+
+
+
+// Add an event listener to reposition tooltips on window resize
+window.addEventListener('resize', function() {
+    var tooltips = document.querySelectorAll('.tooltip-text');
+    tooltips.forEach(function(tooltip) {
+      tooltip.style.left = '50%';
+      tooltip.style.transform = 'translateX(-50%)';
+    });
+  });
+  
+
+
     </script>
 </body>
+
 </html>

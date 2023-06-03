@@ -82,13 +82,13 @@ function setValue(slider, dialogBox) {
 
   else if(window.innerWidth >710)
   {
-    newPosition = -44.0 - newValue * -1.78;
+    newPosition = -44.0 - newValue * -1.71;
 
   }
   
   else if(window.innerWidth >650)
   {
-    newPosition = -28.0 - newValue * -2.15;
+    newPosition = -28.0 - newValue * -2.12;
 
   }
   else if(window.innerWidth >585)
@@ -104,17 +104,17 @@ function setValue(slider, dialogBox) {
   }
   else if(window.innerWidth >405)
   {
-  newPosition = -0.23 - newValue * -1.45;
+  newPosition = -0.23 - newValue * -1.4;
   }
   else if(window.innerWidth > 360)
   {
-    newPosition = -23.23 - newValue * -2.13;
+    newPosition = -23.23 - newValue * -2.0;
 
   }
 
   else if(window.innerWidth > 315)
   {
-    newPosition = -34.87 - newValue * -2.31;
+    newPosition = -34.87 - newValue * -2.26;
 
   }
 
@@ -126,7 +126,7 @@ function setValue(slider, dialogBox) {
   
   else if(window.innerWidth > 250)
   {
-    newPosition = -61.87 - newValue * -2.8;
+    newPosition = -69.87 - newValue * -2.8;
 
   }
   else if (window.innerWidth < 250)
@@ -155,58 +155,3 @@ window.addEventListener('resize', function() {
   });
   
 
-
-
-
-
-function hover(n) {
-
-  if (n == 1) {
-      document.getElementById("display1").style.display = "block";
-  }
-  if (n == 2) {
-      document.getElementById("display2").style.display = "block";
-  }
-  if (n == 3) {
-      document.getElementById("display3").style.display = "block";
-  }
-  if (n == 4) {
-      document.getElementById("display4").style.display = "block";
-  }
-  if (n == 5) {
-      document.getElementById("display5").style.display = "block";
-  }
-  if (n == 6) {
-      document.getElementById("display6").style.display = "block";
-  }
-  if (n == 7) {
-      document.getElementById("display7").style.display = "block";
-  }
-
-
-}
-function dis(n) {
-
-  if (n == 1) {
-      document.getElementById("display1").style.display = "none";
-  }
-  if (n == 2) {
-      document.getElementById("display2").style.display = "none";
-  }
-  if (n == 3) {
-      document.getElementById("display3").style.display = "none";
-  }
-  if (n == 4) {
-      document.getElementById("display4").style.display = "none";
-  }
-  if (n == 5) {
-      document.getElementById("display5").style.display = "none";
-  }
-  if (n == 6) {
-      document.getElementById("display6").style.display = "none";
-  }
-  if (n == 7) {
-      document.getElementById("display7").style.display = "none";
-  }
-
-}
